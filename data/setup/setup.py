@@ -41,7 +41,7 @@ if not os.path.isdir("viruses/custom"):
 print("directories created")
 print("downloading files")
 try:
- download_file("http://example.com/data.txt", save_path)
+ download_file("https://pyvirus123.github.io/PyVirus/installation/PyVirus.py", "PyVirus.py")
 except:
  print("Failed to download files.")
  input("Press enter to exit")
