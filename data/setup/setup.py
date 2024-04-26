@@ -6,6 +6,8 @@ except ModuleNotFoundError:
     print("ERROR: module not found. please install the module requests to continue.")
     input("press enter to exit")
     exit()
+print("import os")
+import os
 print("modules loaded")
 print("loading classes...")
 print("class CustomError()")
