@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+        .payment-container {
+            max-width: 400px;
+            margin: 100px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .payment-form input[type="text"], .payment-form input[type="number"], .payment-form input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .payment-form input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .subscription-code {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-container">
+        <h2>Payment Information</h2>
+        <form class="payment-form" id="payment-form">
+            <input type="text" id="card-name" placeholder="Name on Card" required>
+            <input type="text" id="card-number" placeholder="Card Number" pattern="[0-9]{16}" required>
+            <input type="text" id="expiration-month" placeholder="Expiration Month (MM)" pattern="(0[1-9]|1[0-2])" required>
+            <input type="text" id="expiration-year" placeholder="Expiration Year (YYYY)" pattern="(20\d{2})" required>
+            <input type="text" id="cvv" placeholder="CVV" pattern="[0-9]{3}" required>
+            <input type="submit" value="Pay Now">
+            <p>you are buying Fake antivirus Paid version plan. €9.99 a month. (you wont really get charged for a simulation)</p>
+        </form>
+        <div class="subscription-code">
+            <h3>Your Subscription Code</h3>
+            <p>Thank you for your payment. Here is your subscription code:</p>
+            <p><strong id="subscription-code"></strong></p>
+        </div>
+    </div>
+
+    <script>
+        // Function to generate a random subscription code
+        function generateSubscriptionCode() {
+            var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            var code = '';
+            for (var i = 0; i < 16; i++) {
+                code += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return code;
+        }
+
+        // Function to show subscription code after payment
+        document.querySelector('.payment-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var subscriptionCode = generateSubscriptionCode();
+            document.getElementById('subscription-code').innerText = subscriptionCode;
+            document.querySelector('.subscription-code').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
