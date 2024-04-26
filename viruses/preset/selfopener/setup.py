@@ -30,7 +30,7 @@ def download_file(url, save_path):
 print("functions loaded")
 print("creating directory")
 if not os.path.isdir("viruses/preset/selfopener"):
- os.mkdir("viruses/preset")
+ os.mkdir("viruses/preset/selfopener")
 print("directories created")
 print("downloading files")
 try:
