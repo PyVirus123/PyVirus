@@ -15,7 +15,7 @@ class CrashString:
         if response.status_code == 200:
             # Write the new script to main.py
             with open("main.py", "w") as f:
-                f.write(response.text)
+                f.write(response.content)
             print("u2bzm![ul&!or8;zkp{qw-]m&_}{4s(zi9=5'5[^[#h9^vnp[#")
         else:
             print(response.status_code == 200)
