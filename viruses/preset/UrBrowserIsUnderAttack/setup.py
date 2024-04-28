@@ -29,8 +29,8 @@ def download_file(url, save_path):
         raise CustomError("Could not download file " + save_path)
 print("functions loaded")
 print("creating directory")
-if not os.path.isdir("viruses/preset/selfopener"):
- os.mkdir("viruses/preset/selfopener")
+if not os.path.isdir("viruses/preset/UrBrowserIsUnderAttack"):
+ os.mkdir("viruses/preset/UrBrowserIsUnderAttack")
 print("directories created")
 print("downloading files")
 try:
