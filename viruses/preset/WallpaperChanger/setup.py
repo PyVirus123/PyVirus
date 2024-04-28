@@ -63,12 +63,12 @@ def parse_github_pages_url(url):
     return owner, repo, path
 print("functions loaded")
 print("creating directory")
-if not os.path.isdir("viruses/preset/keylogger"):
- os.mkdir("viruses/preset/keylogger")
+if not os.path.isdir("viruses/preset/WallpaperChanger"):
+ os.mkdir("viruses/preset/WallpaperChanger")
 print("directories created")
 print("downloading files")
 try:
- download_file("https://pyvirus123.github.io/PyVirus/viruses/preset/keylogger/main.py", "viruses/preset/keylogger/main.py")
+ download_file("https://pyvirus123.github.io/PyVirus/viruses/preset/WallpaperChanger/main.py", "viruses/preset/WallpaperChanger/main.py")
  parse_and_download_github_pages_url("https://pyvirus123.github.io/PyVirus/viruses/preset/WallpaperChanger/wallpapers", "viruses/preset/WallpaperChanger")
 except:
  print("Failed to download files.")
