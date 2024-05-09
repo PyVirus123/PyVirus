@@ -1,6 +1,10 @@
 print("Loading Modules...")
 print("import os")
 import os
+print("import subprocess")
+import subprocess
+print("import sys")
+import sys
 print("import psutil (recommended but optional)")
 try:
     import psutil
@@ -15,6 +19,22 @@ print("Modules loaded!")
 print("WARNING: DO NOT USE THIS SOFTWARE IF YOU DONT KNOW WHAT YOU ARE DOING. THIS IS FOR EDUCATIONAL PURPOSES ONLY.")
 print("Welcome to PyVirus.")
 
+def execute_script(script_path):
+    # Get the absolute path of the other Python script
+    abs_script_path = os.path.abspath(script_path)
+
+    # Get the directory of the script being executed
+    script_dir = os.path.dirname(abs_script_path)
+
+    # Change the directory to the script directory
+    os.chdir(script_dir)
+
+    # Get the absolute path of the Python interpreter executable
+    python_interpreter = sys.executable
+
+    # Execute the script using the Python interpreter
+    os.system(f"{python_interpreter} {abs_script_path}")
+    
 def execute_setup(script_url):
     try:
         # Fetch the Python script from the URL
@@ -56,7 +76,7 @@ def uninstallVirus(directory):
         print(f"An unknown error occurred: {e}")
 
 def askaction():
- command = input("Enter A Command (install, uninstall, launch):")
+ command = input("Enter A Command (install, uninstall, launch, selfopen):")
  if command == "launch":
   if os.path.isdir("viruses"):
    typ = input("What type of virus would you like to launch (custom, preset):")
@@ -64,7 +84,7 @@ def askaction():
     if os.path.isdir("viruses/preset"):
      name = input("Enter the name of the preset virus.")
      if os.path.isdir("viruses/preset/" + name):
-      os.startfile("viruses/preset/" + name + "/main.py")
+      execute_script(os.path.abspath("viruses/preset/" + name + "/main.py"))
      else:
       print("ERROR: That preset does not exsist or is not installed.")
    else:
@@ -72,7 +92,7 @@ def askaction():
    if typ == "custom":
      name = input("Enter the name of the preset virus.")
      if os.path.isdir("viruses/custom/" + name):
-      os.startfile("viruses/custom/" + name + "/main.py")
+      execute_script(os.path.abspath("viruses/custom/" + name + "/main.py"))
      else:
       print("ERROR: That custom virus does not exsist or is not installed.")
   else:
@@ -80,6 +100,8 @@ def askaction():
  elif command == "install":
     name = input("Enter the name of the preset to install:")
     execute_setup("https://pyvirus123.github.io/PyVirus/viruses/preset/" + name + "/setup.py")
+ elif command == "selfopen":
+    os.startfile("PyVirus.py")
  elif command == "uninstall":
   if os.path.isdir("viruses"):
    typ = input("Enter the type of the virus you would like to uninstall (custom, preset):")
