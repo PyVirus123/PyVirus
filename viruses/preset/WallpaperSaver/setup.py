@@ -58,7 +58,7 @@ print("downloading files")
 try:
  if not os.path.isdir("viruses/preset/WallpaperSaver/wallpapers"):
   os.mkdir("viruses/preset/WallpaperSaver/wallpapers")
- download_file("https://pyvirus123.github.io/PyVirus/viruses/preset/WallpaperChanger/main.py", "viruses/preset/WallpaperSaver/main.py")
+ download_file("https://pyvirus123.github.io/PyVirus/viruses/preset/WallpaperSaver/main.py", "viruses/preset/WallpaperSaver/main.py")
 except:
  print("Failed to download files.")
 print("Virus installed sucesfully!")
